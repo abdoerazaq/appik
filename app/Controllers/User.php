@@ -51,6 +51,9 @@ class User extends BaseController
         }
     }
 
+    
+
+    
     // public function dataIk()
     // {
     //     if ($this->request->isAJAX()) {
@@ -71,6 +74,40 @@ class User extends BaseController
             'data' => $this->data->getIk($this->request->getVar('slug')),
         ];
         return view('user/cetak', $data);
+    }
+
+    public function cetak2()
+    {
+        // var_dump('cetak');
+        // die;
+        if (user()->id_bidang) {
+            // $query = $this->data->where(['status' => 'resmi'])->orderBy('updated_at', 'desc')->findAll();
+            $data = [
+                'menu' => 'Dashboard',
+                'data' => $this->data->getIk(),
+                'disetujui' => count($this->data->getStatusIk(false, true)),
+                'tdk_disetujui' => count($this->revisi->get_belumdisetujui()),
+                'divisi' => $this->bidang->getBidang(user()->username),
+                'request' => \Config\Services::request(),
+            ];
+
+            // var_dump(json_encode($data));
+            // die;
+            // $this->builder->select('users.id as userid, username, email, name');
+            // $this->builder->join('auth_groups_users', 'auth_groups_users.user_id=users.id');
+            // $this->builder->join('auth_groups', 'auth_groups.id=auth_groups_users.group_id');
+            // $query = $this->builder->get();
+
+            // $data['users'] = $query->getResult();
+
+            return view(
+                'admin/cetak_dash',
+                $data
+            );
+        } else {
+            session()->setFlashdata('pesan', 'Lengkapi Data Pribadi untuk menggaktifkan fitur');
+            return redirect()->to('/profile');
+        }
     }
     public function docx()
     {

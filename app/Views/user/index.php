@@ -19,6 +19,10 @@
         border: 1px solid black;
         font-size: 7px;
     }
+
+    @page {
+        size: A4;
+    }
 </style>
 
 <div class="home-content">
@@ -99,19 +103,20 @@
 
                         </td>
                     </tr>
+                <?php endforeach; ?>
             </tbody>
-        <?php endforeach; ?>
+
         </table>
-        <?php if (in_groups('admin')): ?>
-        <div class="modal-footer">
-            <div class="d-grid gap-1 d-md-flex justify-content-md-end">
-                <form action="<?= base_url('user/cetak'); ?>" method="POST" class="me-md-2">
-                    <?= csrf_field(); ?>
-                    <input type="hidden" name="slug" id="cetak">
-                    <button type="submit" class="btn btn-secondary">Cetak</button>
-                </form>
+        <?php if (in_groups('admin')) : ?>
+            <div class="modal-footer">
+                <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                    <form action="<?= base_url('user/cetak2'); ?>" method="POST" class="me-md-2">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="slug" id="cetak">
+                        <button type="submit" class="btn btn-secondary">Cetak</button>
+                    </form>
+                </div>
             </div>
-        </div>
         <?php endif; ?>
     </body>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
