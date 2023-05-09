@@ -11,7 +11,7 @@
     <div class="overview-boxes">
         <div class="card" style="width:100% ;">
             <div class="card-header">
-                <small><a href="<?= base_url('admin'); ?>">&laquo; back</a></small>
+                <small><a href="<?= base_url('admin'); ?>">&laquo; Kembali</a></small>
             </div>
             <form action="<?= base_url('/admin/update'); ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="fullname" class="col-sm-2 col-form-label">Fullname</label>
+                        <label for="fullname" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col">
                             <input type="text" disabled value="<?= $users['fullname']; ?>" class="form-control" id="fullname">
                         </div>
@@ -54,7 +54,7 @@
                                 <option selected><?php if ($users['id_bidang']) : ?>
                                         <?= $bidang['nama']; ?>
                                     <?php else : ?>
-                                        Open this select menu
+                                        Pilih ini untuk memperbaharui
                                     <?php endif ?>
                                 </option>
                             </select>

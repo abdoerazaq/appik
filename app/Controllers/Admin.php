@@ -22,7 +22,7 @@ class Admin extends BaseController
         $this->ik = new DokumenIK();
         $this->report = new ReportModel();
     }
-
+    
     public function index()
     {
         $data = [

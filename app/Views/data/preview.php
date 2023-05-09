@@ -432,7 +432,6 @@
                         <button type="submit" class="btn btn-secondary">Cetak</button>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

@@ -29,10 +29,14 @@ class User extends BaseController
             $data = [
                 'menu' => 'Dashboard',
                 'data' => $this->data->getIk(),
+                'disetujui' => count($this->data->getStatusIk(false,true)),
+                'tdk_disetujui' => count($this->revisi->get_belumdisetujui()),
                 'divisi' => $this->bidang->getBidang(user()->username),
                 'request' => \Config\Services::request(),
             ];
 
+            // var_dump(json_encode($data));
+            // die;
             // $this->builder->select('users.id as userid, username, email, name');
             // $this->builder->join('auth_groups_users', 'auth_groups_users.user_id=users.id');
             // $this->builder->join('auth_groups', 'auth_groups.id=auth_groups_users.group_id');

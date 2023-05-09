@@ -13,14 +13,14 @@
             <?= session()->getFlashdata('gagal'); ?>
         </div>
     <?php endif ?>
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add Bidang</button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Tambah Bidang</button>
     <form id="msform" action="<?= base_url('admin/add') ?>" method="POST" enctype="multipart/form-data">
         <?= csrf_field(); ?>
         <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Bidang</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Bidang</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </div>
-                        <textarea placeholder="Input Description. . ." class="form-control" id="description" name="description"></textarea>
+                        <textarea placeholder="Masukkan Deskripsi. . ." class="form-control" id="description" name="description"></textarea>
                     </div>
                     <div class="modal-footer">
                         <input type="submit" class="btn btn-secondary" value="Buat">
@@ -45,9 +45,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">No</th>
+                    <th scope="col">Nomor</th>
                     <th scope="col">Bidang</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Deskripsi</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -60,11 +60,11 @@
                         <td><?= $divisi['description']; ?></td>
                         <td>
                             <div class="btn-group d-flex" role="group" style="width:100%;">
-                                <a href="javascript:;" data-id="<?php echo $divisi['id_bidang'] ?>" data-bidang="<?php echo $divisi['nama'] ?>" data-description="<?php echo $divisi['description'] ?>" type="button" class="btn btn-warning w-100 px-0" data-bs-toggle="modal" data-bs-target="#editbidang" data-bs-whatever="@getbootstrap">Edit</a>
+                                <a href="javascript:;" data-id="<?php echo $divisi['id_bidang'] ?>" data-bidang="<?php echo $divisi['nama'] ?>" data-description="<?php echo $divisi['description'] ?>" type="button" class="btn btn-warning w-100 px-0" data-bs-toggle="modal" data-bs-target="#editbidang" data-bs-whatever="@getbootstrap">Perbarui</a>
                                 <form action="<?= base_url('deletebidang/' . $divisi['id_bidang']); ?>" method="POST" class="btn-group d-flex" role="group" style="width:100%;">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger w-100 px-0" onclick="return confirm('Apakah Anda Yakin?');">Delete</button>
+                                    <button type="submit" class="btn btn-danger w-100 px-0" onclick="return confirm('Apakah Anda Yakin?');">Hapus</button>
                                 </form>
                             </div>
                         </td>
@@ -78,7 +78,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Bidang</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Tambah Bidang</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

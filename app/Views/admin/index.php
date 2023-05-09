@@ -22,7 +22,7 @@
                     <form action="<?= base_url('admin/' . $user['username']); ?>" method="POST" class="d-inline btn-group d-flex" style="width:100%;" role="group">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger w-100 px-0" onclick="return confirm('Apakah Anda Yakin?');">Delete</button>
+                        <button type="submit" class="btn btn-danger w-100 px-0" onclick="return confirm('Apakah Anda Yakin?');">Hapus</button>
                     </form>
                 </div>
             </div>

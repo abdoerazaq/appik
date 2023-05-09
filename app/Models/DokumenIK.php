@@ -10,17 +10,33 @@ class DokumenIK extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['no_ik', 'status', 'created_by', 'tgl_ditetapkan', 'tgl_diperbarui', 'tgl_terbit', 'disetujui', 'judul', 'slug', 'disusun', 'no_revisi', 'revisi', 'tujuan', 'ruang_lingkup', 'definisi', 'terkait_pendukung', 'terkait_referensi', 'terkait_perizinan', 'terkait_teknik', 'sumber_sdm', 'sumber_tools', 'sumber_material', 'risiko_identifikasi', 'risiko_mitigasi', 'parameter', 'detail_aktivitas', 'formulir', 'lampiran'];
 
-    public function getIk($slug = false)
+    public function getIk($slug = false, $tanda =null)
     {
         if ($slug == false) {
             return $this->join('bidang', 'bidang.id_bidang=dokumen_ik.disetujui')
-                ->where(['status' => 'RESMI'])
-                ->orderBy('updated_at', 'desc')->findAll();
+            ->where(['status' => 'RESMI'])
+            ->orderBy('updated_at', 'desc')->findAll();
         }
         return $this->join('bidang', 'bidang.id_bidang=dokumen_ik.disetujui')
-            ->where(['status' => 'RESMI'])
-            ->where(['slug' => $slug])->first();
+        ->where(['status' => 'RESMI'])
+        ->where(['slug' => $slug])->first();
     }
+
+    public function getStatusIk($slug = false, $tanda = null)
+    {
+        $query = $this->select('*');
+
+        if ($slug == false) {
+            if ($tanda == null) {
+                $query->where('disetujui =', null);
+            }else{
+                $query->where('disetujui !=', null);
+            }
+            return $query->findAll();
+        }
+        return $query->first();
+    }
+
     public function ikBidang($slug = false)
     {
         if ($slug == false) {

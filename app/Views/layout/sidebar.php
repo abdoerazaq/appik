@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="logo-details">
         <i><img src="<?= base_url(); ?>/icon.PNG" alt=""></i>
-        <span class="logo_name"><img src="<?= base_url(); ?>/logo.PNG" alt=""><br>UBJOM PLTMG ARUN</span>
+        <span class="logo_name"><img src="<?= base_url(); ?>/logo_i.jpeg" alt=""></span>
     </div>
     <ul class="nav-links">
         <li>
@@ -67,14 +67,6 @@
                                                     } ?>>
                     <i class='bx bxs-user-account'></i>
                     <span class="links_name">User List</span>
-                </a>
-            </li>
-            <li>
-                <a href="<?= base_url('report'); ?>" <?php if ($request->uri->getSegment(1) == "report") {
-                                                        echo 'class="active"';
-                                                    } ?>>
-                    <i class='bx bxs-report'></i>
-                    <span class="links_name">Report</span>
                 </a>
             </li>
         <?php endif; ?>

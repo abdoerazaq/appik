@@ -28,6 +28,10 @@ class DataModel extends Model
             ->where(['slug' => $slug])->first();
     }
 
+    public function get_belumdisetujui(){
+        return $this->findAll();
+    }
+
     public function getMrk($slug = false)
     {
         if ($slug == false) {
